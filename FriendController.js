@@ -2,6 +2,8 @@ var app = angular.module("myFriends");
 
 app.controller("MainController", function($scope) {
     $scope.test = "Hello World";
+    $scope.sortBy;
+    $scope.sortDirect;
 /*    $scope.searchTermGet = function() {
         $scope.searchTerm = $scope.newSearch.searchTerm;
         $scope.newSearch = null;
