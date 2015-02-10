@@ -24,16 +24,16 @@
 <div class="friends">
 
 
-<form class="form-inline searchForm" role="form" ng-submit="searchTermGet()">
+  <form class="form-inline searchForm" role="form"> <!-- ng-submit="searchTermGet()"-->
   <div class="form-group">
 
-    <input class="form-control" placeholder="Search Anything About Your Friends" ng-model="newSearch.searchTerm">
+    <!--<input class="form-control" placeholder="Search Anything About Your Friends" ng-model="searchTerm">-->
       
   <!-- The stuff below is For step 5....get rid of the one above if you wish-->
-<!--    
-    <input class="form-control" placeholder="Search Your Friends' Name" >
-    <input class="form-control" placeholder="Search Your Freinds' Location" > 
- -->
+    
+    <input class="form-control" placeholder="Search Your Friends' Name" ng-model="searchTerm.name"> <!-- was using the controller to store data, but found the angular documentation to be helpful and simplified things a bit... -->
+    <input class="form-control" placeholder="Search Your Freinds' Location" ng-model="searchTerm.current_location"> 
+ 
     <select class="input-medium">
         <option>Name</option>
         <option># friends</option>
@@ -49,7 +49,7 @@
   
 </form>
   <ul>
-    <li class='friend' ng-repeat="x in friends | filter:searchTerm">
+    <li class='friend' ng-repeat="x in friends | filter: searchTerm : strict">
       <img class="profile-pic" src='{{x.pic_square}}'>
         <h3>{{x.name}}</h3>
       <div class="location">
