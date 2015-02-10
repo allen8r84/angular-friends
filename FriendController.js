@@ -2,6 +2,10 @@ var app = angular.module("myFriends");
 
 app.controller("MainController", function($scope) {
     $scope.test = "Hello World";
+    $scope.searchTermGet = function() {
+        $scope.searchTerm = $scope.newSearch.searchTerm;
+        $scope.newSearch = null;
+    };
     $scope.friends = [
     {
         "name": "Preston McNeil",
