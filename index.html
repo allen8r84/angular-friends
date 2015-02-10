@@ -18,7 +18,6 @@
 </head>
 
 <body ng-controller="MainController">
-  {{angular.element($0).scope().friends}}
 
 <h1>The <strong>facebook</strong> Friend Machine</h1>
 
@@ -47,19 +46,18 @@
     </select>
   </div>
 </form>
-
   <ul>
-    <li class='friend'>
-       <img class="profile-pic" src='https://scontent-a.xx.fbcdn.net/hprofile-ash3/833_10200838803828124_1233160321_a.jpg'>
-      <h3>Cali Fornia</h3>
+    <li class='friend' ng-repeat="x in friends">
+      <img class="profile-pic" src='{{x.pic_square}}'>
+        <h3>{{x.name}}</h3>
       <div class="location">
-        Location: New Port Beach, California, United States
+        Location: {{x.current_location.city}}, {{x.current_location.state}}, {{x.current_location.country}}
       </div>      
       <div class="status">
-        Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
+        Status: {{x.status.message}} 
       </div>      
       <div class="num-friends">
-        Friends: 1,367
+        Friends: {{x.friend_count}}
       </div>
     </li>
   </ul>
